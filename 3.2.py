@@ -1,44 +1,40 @@
 import numpy as np
-import matplotlib.pyplot as plt
 import matplotlib
-matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+matplotlib.use('TkAgg')
+
 
 x = np.linspace(0,2,40)
 y = np.linspace(0,2,40)
 X,Y=np.meshgrid(x,y)
-Z = X**0.25 + Y**0.25
+
+Z1 = X**0.25 + Y**0.25
 fig = plt.figure()
 ax = fig.add_subplot(111, projection = '3d')
-ax.plot_surface(X,Y,Z)
-plt.savefig('plot3.2.1.png')
-print("Первый график построен")
+ax.plot_wireframe(X,Y,Z1)
+plt.show()
 
-Z=X**2-Y**2
+Z2 = X**2-Y**2
 fig = plt.figure()
 ax = fig.add_subplot(111, projection = '3d')
-ax.plot_surface(X,Y,Z)
-plt.savefig('plot3.2.2.png')
-print("Второй график построен")
+ax.plot_wireframe(X,Y,Z2)
+plt.show()
 
-
-Z= 2*X + 3*Y
+Z3 = 2*X +3*X
 fig = plt.figure()
 ax = fig.add_subplot(111, projection = '3d')
-ax.plot_surface(X,Y,Z)
-plt.savefig('plot3.2.3.png')
-print("Третий график построен")
+ax.plot_wireframe(X,Y,Z3)
+plt.show()
 
-Z= X**2+Y**2
+Z4 = X**2 +Y**2
 fig = plt.figure()
 ax = fig.add_subplot(111, projection = '3d')
-ax.plot_surface(X,Y,Z)
-plt.savefig('plot3.2.4.png')
-print("Четвертый график построен")
+ax.plot_wireframe(X,Y,Z4)
+plt.show()
 
-
-Z=2 + 2*X +2*Y -X**2-Y**2
+Z5 = 2+2*X+2*Y-X**2-Y**2
 fig = plt.figure()
 ax = fig.add_subplot(111, projection = '3d')
-ax.plot_surface(X,Y,Z)
-plt.savefig('plot3.2.5.png')
-print("Пятый график построен")
+ax.plot_wireframe(X,Y,Z5)
+plt.show()
