@@ -1,7 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib
-matplotlib.use('Agg')
+from mpl_toolkits.mplot3d import Axes3D
+matplotlib.use('TkAgg')
 
 def f(t):
     return np.log1p(np.abs(1.3+t))-np.exp(t)
@@ -26,7 +27,7 @@ plt.xlabel('t')
 plt.ylabel('f(t)')
 plt.title('График функции f(t)')
 plt.grid(True)
-plt.savefig('plot1.png')
+plt.show()
 
 sr_line = np.full(len(s_values),sr)
 plt.plot(t_values, s_values,label = 'f(t)')
@@ -36,4 +37,4 @@ plt.ylabel('f(t)')
 plt.title('График функции f(t) и прямой со средним значением')
 plt.legend()
 plt.grid(True)
-plt.savefig('plot2.png')
+plt.show()
