@@ -2,7 +2,9 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 import matplotlib
-matplotlib.use('Agg')
+from mpl_toolkits.mplot3d import Axes3D
+matplotlib.use('TkAgg')
+
 dataset = pd.read_csv('test.csv')
 values = dataset.sample(n=1000)
 missing = values.isnull().sum()
@@ -11,7 +13,7 @@ print("Пропущенные значения:\n", missing)
 fig, axes = plt.subplots(1,2, figsize=(10,5))
 values['Id'].plot.box(ax=axes[0])
 values['Id'].plot.hist(ax=axes[1])
-plt.savefig('plot2.png')
+plt.show()
 
 
 values['Id'].fillna(values['Id'].mean(), inplace=True)
@@ -30,5 +32,5 @@ else:
     print("Столбцы 'DistrictId' и/или 'Rooms' отсутстыуют")
 print("Сводная таблица:\n ", pivot_table)
 
-plt.savefig('plot2.png')
+plt.show()
 
